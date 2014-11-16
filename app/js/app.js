@@ -1,12 +1,16 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('codeScaleApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+  'codeScaleApp.welcome',
+  'codeScaleApp.overview',
+  'codeScaleApp.presurvey',
+  'codeScaleApp.refresher',
+  'codeScaleApp.codescale',
+  'codeScaleApp.postsurvey',
+  'codeScaleApp.thankyou'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/welcome'});
 }]);
