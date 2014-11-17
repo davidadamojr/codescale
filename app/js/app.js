@@ -5,11 +5,10 @@ angular.module('codeScaleApp', [
   'ngRoute',
   'codeScaleApp.welcome',
   'codeScaleApp.overview',
-  'codeScaleApp.presurvey',
   'codeScaleApp.refresher',
-  'codeScaleApp.codescale',
-  'codeScaleApp.postsurvey',
-  'codeScaleApp.thankyou'
+  'codeScaleApp.survey',
+  'codeScaleApp.thankyou',
+  'codeScaleApp.mainactivity'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/welcome'});

@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('codeScaleApp.welcome', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'partials/view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/welcome', {
+    templateUrl: 'partials/welcome/welcome.html',
+    controller: 'WelcomeCtrl'
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
+.controller('WelcomeCtrl', [function() {
+  
 }]);
