@@ -1,5 +1,21 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="container">
+	{{hello}}
+	<div class="row">
+		<div class="snippet-section col-md-9">
+			<h3>Code Snippet</h3>
+			<div class="snippet">
+				{{snippets[0].snippetText}}
+			</div>
+			<br/>
+			<a href="#" class="btn btn-default">Show Output</a>
+		</div>
+		<div class="output-section col-md-3">
+			<h3>Output</h3>
+			<div class="output">
+				{{snippets[0].output}}
+			</div>
+			<br/>
+			<a href="#" class="btn btn-primary">Next &rarr;</a>
+		</div>
+	</div>
+</div>

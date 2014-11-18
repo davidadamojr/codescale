@@ -1,9 +1,22 @@
 /* app css stylesheet */
 
 header {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #cccccc;
 	padding-bottom: 10px;
 	margin-bottom: 30px;
+}
+
+.snippet {
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	padding: 10px;
+}
+
+.output {
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	padding: 10px;
+	font-size: 25px;
 }
 
 .access-code-form {
