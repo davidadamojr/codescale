@@ -1,12 +1,14 @@
 /* app css stylesheet */
 
-.login  h3{
-	text-align: center;
+header {
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
 }
 
 .access-code-form {
-	width: 400px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 50px;
+	float: none;
+	margin-top: 40px;
 }
