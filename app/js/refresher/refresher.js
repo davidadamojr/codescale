@@ -6,8 +6,8 @@ function($routeProvider) {
 		templateUrl : 'partials/refresher/refresher.html',
 		controller : 'RefresherCtrl'
 	});
-}]).controller('RefresherCtrl', ['$scope',
-function($scope) {
+}]).controller('RefresherCtrl', ['$scope', '$location',
+function($scope, $location) {
 	
 	$scope.currentSnippet = 0;
 	$scope.snippets = [{
@@ -25,6 +25,7 @@ function($scope) {
 	$scope.showOutput = false;
 	$scope.disableFinish = true;
 	$scope.disableNext = false;
+	$scope.disableShowOutput = false;
 	
 	$scope.getNext = function(){
 		$scope.showOutput = false;
@@ -39,5 +40,14 @@ function($scope) {
 			$scope.disableFinish = false;
 			$scope.disableNext = true;
 		}
+	};
+	
+	$scope.doShowOutput  = function(){
+		$scope.disableShowOutput = true;
+		$scope.showOutput = true;
+	};
+	
+	$scope.refresherFinish = function(){
+		$location.url('/mainactivity');
 	};
 }]);

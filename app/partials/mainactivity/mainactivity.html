@@ -1,1 +1,31 @@
-<p>This is the partial for view 1.</p>
+<div class="container">
+	<div class="row" ng-hide="showInfoScreen || showFailScreen">
+		<div class="snippet-section col-md-9">
+			<h3>Code Snippet {{currentSnippet + 1}} of {{numberOfSnippets}}</h3>
+			<div class="snippet">
+				{{snippets[currentSnippet].snippetText}}
+			</div>
+			<br/>
+			
+		</div>
+		<div class="output-section col-md-3">
+			<h3>Output</h3>
+			<input type="text" class="form-control" placeholder="Program Output" name="snippet_output" ng-model="providedOutput" />
+			<br/>
+			<button ng-disabled="disableSubmit" ng-click="submitOutput()" class="btn btn-default">Submit</button>
+		</div>
+	</div>
+	<div class="row info-screen" ng-show="showInfoScreen">
+		<div class="col-md-6 col-md-offset-3">
+			<p>{{infoText}}</p>
+			<button class="btn btn-primary" ng-click="showActivity()">Continue</button>
+		</div>
+	</div>
+	<div class="row info-screen" ng-show="showFailScreen">
+		<div class="col-md-6 col-md-offset-3">
+			<p>The output you provided is incorrect! :'(</p>
+			<button class="btn btn-primary" ng-click="showActivity(true)">Try Again</button>
+		</div>
+	</div>
+</div>
+
