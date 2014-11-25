@@ -27,7 +27,7 @@ function($scope, $location) {
 	$scope.disableNext = false;
 	$scope.disableShowOutput = false;
 	
-	$scope.getNext = function(){
+	/*$scope.getNext = function(){
 		$scope.showOutput = false;
 		
 		if ($scope.currentSnippet < $scope.snippets.length  - 1){
@@ -49,7 +49,7 @@ function($scope, $location) {
 		$scope.showOutput = true;
 		$scope.disableShowOutput = true;
 		$scope.$apply();
-	};
+	};*/
 	
 }])
 .directive('refresherFinish', ['$location', function($location){
@@ -67,7 +67,21 @@ function($scope, $location) {
 		restrict: 'A',
 		link: function(scope, element, attrs){
 			element.on("click", function(){
-				scope.getNext();
+				scope.showOutput = false;
+		
+				if (scope.currentSnippet < scope.snippets.length  - 1){
+					scope.currentSnippet = scope.currentSnippet + 1;
+					scope.disableFinish = true;
+					scope.disableNext = false;
+				}
+				
+				if (scope.currentSnippet == scope.snippets.length - 1){
+					scope.disableFinish = false;
+					scope.disableNext = true;
+				}
+				
+				scope.disableShowOutput = false;
+				scope.$apply();
 			});
 		}
 	}
@@ -77,7 +91,9 @@ function($scope, $location) {
 		restrict: 'A',
 		link: function(scope, element, attrs){
 			element.on("click", function(){
-				scope.showRefresherOutput();
+				scope.showOutput = true;
+				scope.disableShowOutput = true;
+				scope.$apply();
 			});
 		}
 	};

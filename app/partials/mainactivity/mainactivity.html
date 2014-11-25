@@ -10,21 +10,21 @@
 		</div>
 		<div class="output-section col-md-3">
 			<h3>Output</h3>
-			<input type="text" class="form-control" placeholder="Program Output" name="snippet_output" ng-model="providedOutput" />
+			<input type="text" class="form-control" placeholder="Program Output" ng-model="providedOutput" />
 			<br/>
-			<button ng-disabled="disableSubmit" ng-click="submitOutput()" class="btn btn-default">Submit</button>
+			<button ng-disabled="disableSubmit" submit-output class="btn btn-default">Submit</button>
 		</div>
 	</div>
 	<div class="row info-screen" ng-show="showInfoScreen">
 		<div class="col-md-6 col-md-offset-3">
 			<p>{{infoText}}</p>
-			<button class="btn btn-primary" ng-click="showActivity()">Continue</button>
+			<button class="btn btn-primary" try-again="0" show-activity>Continue</button>
 		</div>
 	</div>
 	<div class="row info-screen" ng-show="showFailScreen">
 		<div class="col-md-6 col-md-offset-3">
 			<p>The output you provided is incorrect! :'(</p>
-			<button class="btn btn-primary" ng-click="showActivity(true)">Try Again</button>
+			<button class="btn btn-primary" try-again="1" show-activity>Try Again</button>
 		</div>
 	</div>
 </div>

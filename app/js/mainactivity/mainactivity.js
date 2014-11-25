@@ -30,7 +30,7 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 	$scope.showFailScreen = false;
 	$scope.providedOutput = "";
 	
-	$scope.showActivity = function(tryingAgain){
+	/*$scope.showActivity = function(tryingAgain){
 		if (typeof(tryingAgain) === 'undefined') tryingAgain = false;
 	
 		$scope.providedOutput = "";
@@ -39,9 +39,9 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 		if (!$scope.showingFirstSnippet && !tryingAgain) $scope.currentSnippet = $scope.currentSnippet + 1;
 		$scope.showingFirstSnippet = false;
 		$scope.correctOutput = false;
-	};
+	};*/
 	
-	$scope.submitOutput = function(){
+	/*$scope.submitOutput = function(){
 		if ($scope.providedOutput == $scope.snippets[$scope.currentSnippet].output){
 			$scope.showFailScreen = false;
 			$scope.showInfoScreen = true;
@@ -57,5 +57,46 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 		} else {
 			$location.url('/survey');
 		}
-	};
+	};*/
+}])
+.directive('showActivity', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs){
+			element.on("click", function(){
+				scope.providedOutput = "";
+				scope.showInfoScreen = false;
+				scope.showFailScreen = false;
+				if (!scope.showingFirstSnippet && !parseInt(attrs.tryAgain)) scope.currentSnippet = scope.currentSnippet + 1;
+				//scope.showingFirstSnippet = false;
+				scope.correctOutput = false;
+				scope.$apply();
+			});
+		}
+	}
+})
+.directive('submitOutput', ['$location', function($location){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs){
+			element.on("click", function(){
+				if (scope.providedOutput == scope.snippets[scope.currentSnippet].output){
+				    scope.showingFirstSnippet = false;
+					scope.showFailScreen = false;
+					scope.infoText = "Awesome! You got that right! Ready for the next code snippet? Please remember to avoid any interruptions while working on a code snippet.";
+					if (scope.currentSnippet < scope.snippets.length - 1){
+					   scope.showInfoScreen = true;
+				    } else {
+					   scope.$apply($location.url('/survey'));
+					   return;
+				    }
+				    scope.$apply();
+				} else {
+					scope.showInfoScreen = false;
+					scope.showFailScreen = true;
+				}
+				scope.$apply();			
+			});
+		}
+	}
 }]);
