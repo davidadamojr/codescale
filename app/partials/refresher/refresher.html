@@ -14,7 +14,7 @@
 				<span ng-show="showOutput">{{snippets[currentSnippet].output}}</span>
 			</div>
 			<br/>
-			<button ng-disabled="disableShowOutput" ng-click="doShowOutput()" class="btn btn-default">Show Output</button>&nbsp;&nbsp;<button ng-disabled="disableNext" ng-click="getNext()" class="btn btn-default">Next</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-disabled="disableFinish" ng-click="refresherFinish()">Finish</button>
+			<button ng-disabled="disableShowOutput" refresher-output class="btn btn-default">Show Output</button>&nbsp;&nbsp;<button ng-disabled="disableNext" refresher-next class="btn btn-default">Next</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-disabled="disableFinish" refresher-finish>Finish</button>
 		</div>
 	</div>
 </div>

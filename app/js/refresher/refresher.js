@@ -40,14 +40,45 @@ function($scope, $location) {
 			$scope.disableFinish = false;
 			$scope.disableNext = true;
 		}
+		
+		$scope.disableShowOutput = false;
+		$scope.$apply();
 	};
 	
-	$scope.doShowOutput  = function(){
-		$scope.disableShowOutput = true;
+	$scope.showRefresherOutput = function(){
 		$scope.showOutput = true;
+		$scope.disableShowOutput = true;
+		$scope.$apply();
 	};
 	
-	$scope.refresherFinish = function(){
-		$location.url('/mainactivity');
+}])
+.directive('refresherFinish', ['$location', function($location){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs){
+			element.on("click", function(){
+				scope.$apply($location.url('/mainactivity'));
+			});
+		}
 	};
-}]);
+}])
+.directive('refresherNext', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs){
+			element.on("click", function(){
+				scope.getNext();
+			});
+		}
+	}
+})
+.directive('refresherOutput', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs){
+			element.on("click", function(){
+				scope.showRefresherOutput();
+			});
+		}
+	};
+});
