@@ -1,5 +1,31 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="container">
+	<form>
+		<div class="form-group">
+			<p>How will you rate your Java proficiency?</p>
+			<input type="radio" name="proficiency" /> 5<br/>
+			<input type="radio" name="proficiency" /> 4<br/>
+			<input type="radio" name="proficiency" /> 3<br/>
+			<input type="radio" name="proficiency" /> 2<br/>
+			<input type="radio" name="proficiency" /> 1
+		</div>
+		
+		<div class="form-group">
+			<p>How many years of programming experience do you have?</p>
+			<input type="radio" name="experience" /> Less than 1 year<br/>
+			<input type="radio" name="experience" /> Less than 2 years<br/>
+			<input type="radio" name="experience" /> Less than 3 years<br/>
+			<input type="radio" name="experience" /> Less than 4 years<br/>
+			<input type="radio" name="experience" /> Greater than 4 years<br/>
+		</div>
+		
+		<div class="form-group">
+			<p>What is your highest educational level attained (or in progress)?</p>
+			<input type="radio" name="education" /> High School<br/>
+			<input type="radio" name="education" /> Bachelor's Degree<br/>
+			<input type="radio" name="education" /> Masters Degree<br/>
+			<input type="radio" name="education" /> Doctorate Degree<br/>	
+		</div>
+		<br/>
+		<button ng-click="finished()" class="btn btn-primary">Submit</button>
+	</form>
+</div>
