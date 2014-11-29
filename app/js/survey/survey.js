@@ -9,9 +9,8 @@ angular.module('codeScaleApp.survey', ['ngRoute'])
   });
 }])
 
-.controller('SurveyCtrl', ['$scope, $location', function($scope, $location) {
+.controller('SurveyCtrl', ['$location', '$scope', function($location, $scope) {
 	$scope.finished = function(){
-		alert("thank you");
 		$location.url('/thankyou');
 	};
 }]);
