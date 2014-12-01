@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2014 at 03:49 AM
+-- Generation Time: Dec 01, 2014 at 05:40 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -60,9 +60,22 @@ CREATE TABLE IF NOT EXISTS `trials` (
   `snippet_id` int(11) NOT NULL,
   `time_elapsed` int(11) NOT NULL,
   `is_correct` tinyint(4) NOT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `access_code_id` (`access_code_id`,`snippet_id`)
+  KEY `access_code_id` (`access_code_id`,`snippet_id`),
+  KEY `snippet_id` (`snippet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `trials`
+--
+ALTER TABLE `trials`
+  ADD CONSTRAINT `trials_ibfk_2` FOREIGN KEY (`snippet_id`) REFERENCES `snippets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `trials_ibfk_1` FOREIGN KEY (`access_code_id`) REFERENCES `access_codes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

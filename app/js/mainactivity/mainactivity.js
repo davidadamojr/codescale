@@ -14,7 +14,7 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 	$scope.infoText = "The main activity is about to begin. You will be presented with code snippets and will be required to enter the expected output of the code into the text input on the right side of the screen.";
 	$scope.showInfoScreen = true;
 	
-	$scope.currentSnippet = 0; //no snippet presented to the user yet
+	$scope.currentSnippet = 0; //no snnippet presented to the user yet
 	$scope.snippets = [{
 		snippetText : "This is snippet 1",
 		output : "65"
