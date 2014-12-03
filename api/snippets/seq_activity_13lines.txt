@@ -1,0 +1,17 @@
+public class Activity1 {
+  public static void main(String[] args){
+    ArrayList<Integer> myList;
+	int firstScore;
+	int secondScore;
+	int result;
+    myList.add(10);
+    myList.add(20);
+    myList.add(30);
+	myList.add(40);
+	myList.add(50);
+	firstScore = scores[4];
+	secondScore = scores[0];
+	result = firstScore + secondScore;
+    System.out.println(Integer.toString(result));	
+  }
+}

@@ -1,0 +1,11 @@
+public class Refresher4 {
+  public static void main(String[] args){
+    int result;
+	int i = 4;
+	while (i>=1){
+      result = result * i;
+	  i = i - 1;
+    }
+    System.out.println(result);
+  }
+}

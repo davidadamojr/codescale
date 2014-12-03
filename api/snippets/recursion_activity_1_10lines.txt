@@ -1,0 +1,14 @@
+public class Activity6 {
+  public static int recurse(int j){
+    if (q == 0) return p;
+	else return recurse(q, p %q);
+  }
+  
+  public static void main(String[] args){
+    int p = 20;
+	int q = 10;
+	int result;
+	result = gcd(p, q);
+	System.out.println(Integer.toString(result));
+  }
+}

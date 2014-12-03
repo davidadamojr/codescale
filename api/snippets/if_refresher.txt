@@ -1,0 +1,10 @@
+public class Refresher1 {
+  public static void main(String[] args){
+    int i = 51;
+	if (i % 2 == 0)
+	  i = 24;
+	else 
+	  i = 58;
+	System.out.println(i);
+  }
+}

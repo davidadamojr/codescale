@@ -1,0 +1,10 @@
+public class Activity3 {
+  public static void main(String[] args){
+    int i, result;
+	result = 1;
+	for (i=0; i<5; i++){
+	  result = result + i + 2;
+	}
+	System.out.println(result);
+  }
+}

@@ -1,0 +1,15 @@
+public class Refresher4 {
+  public static int recurse(int j){
+    if (j == 1)
+	  return j;
+	else
+	  return j * recurse(j-1);
+  }
+  
+  public static void main(String[] args){
+    int p = 4;
+	int result;
+	result = recurse(p);
+	System.out.println(p);
+  }
+}
