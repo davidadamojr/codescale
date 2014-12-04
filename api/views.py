@@ -12,56 +12,68 @@ parser.add_argument('output', type=string)
 parser.add_argument('is_correct', type=int)
 
 class AccessView(restful.Resource):
-  def post(self):
-	args = parser.parse_args()
-	access_code = AccessCode.query.filter_by(code=args['code'])
-	access_code.used = 1
-	db.session.commit()
-	response = {'error': False, 'authorized': True},
-	return response
+	def post(self):
+		args = parser.parse_args()
+		access_code = AccessCode.query.filter_by(code=args['code'])
+		access_code.used = 1
+		db.session.commit()
+		response = {'error': False, 'authorized': True},
+		return response
 
 class RefreshersView(restful.Resource):
-  def get(self):
-    response = {}
-	refreshers = Snippets.query.filter_by(type='REFRESHER').all()
-	response['error'] = False
-	response['snippets'] = []
-	for snippet in response:
-	  file_handle = open(snippet.filename, 'r')
-	  file_contents = file_handle.read()
-      snippet_details = {'snippet':file_contents, 'output':snippet.output}
-	  response['snippets'].append(snippet_details)
-	  file_handle.close()
+	def get(self):
+		response = {}
+		refreshers = Snippets.query.filter_by(type='REFRESHER').all()
+		response['error'] = False
+		response['snippets'] = []
+		for snippet in refreshers:
+			file_handle = open(snippet.filename, 'r')
+			file_contents = file_handle.read()
+			snippet_details = {'snippet':file_contents, 'output':snippet.output}
+			response['snippets'].append(snippet_details)
+			file_handle.close()
 	  
-	return response
+		return response
   
 class ActivityView(restful.Resource):
-  def get(self):
-    response = {}
-	activities = Snippets.query.filter(Snippets.type != 'REFRESHER').all()
-	response['error'] = False
-	response['snippets'] = []
-	for snippet in activities:
-	  file_handle = open(snippet.filename, 'r')
-	  file_contents = file_handle.read()
-	  snippet_details = {'snippet':file_contents, 'output':snippet.output}
-	  response['snippets'].append(snippet_details)
-	  file_handle.close()
+	def get(self):
+		response = {}
+		activities = Snippets.query.filter(Snippets.type != 'REFRESHER').all()
+		response['error'] = False
+		response['snippets'] = []
+		for snippet in activities:
+			file_handle = open(snippet.filename, 'r')
+			file_contents = file_handle.read()
+			snippet_details = {'snippet':file_contents, 'output':snippet.output}
+			response['snippets'].append(snippet_details)
+			file_handle.close()
 	
-	return response
+		return response
 
 class SnippetView(restful.Resource):
-  def post(self):
-	args = parser.parse_args()
-	response = {}
-	trial = Trials(args['code'], args['snippet_id'], args['time'], args['is_correct'])
-	new_trial = db.session.add(trial)
-	response['error'] = False
-	response['attempt'] = {'code':new_trial.access_code, 'snippet_id':new_trial.snippet_id, 'time':new_trial.time_elapsed, 'is_correct':new_trial.is_correct}
+	def post(self):
+		args = parser.parse_args()
+		response = {}
+		trial = Trials(args['code'], args['snippet_id'], args['time'], args['is_correct'])
+		new_trial = db.session.add(trial)
+		response['error'] = False
+		response['attempt'] = {'code':new_trial.access_code, 'snippet_id':new_trial.snippet_id, 'time':new_trial.time_elapsed, 'is_correct':new_trial.is_correct}
     
-	return response
+		return response
+	
+class SurveyView(restful.Resource):
+	def post(self):
+		args = parser.parse_args()
+		response = {}
+		survey = Survey(args['code'], args['proficiency'], args['experience'], args['education'])
+		new_survey = db.session.add(survey)
+		response['error'] = False
+		response['survey'] = {'code': new_survey.code, 'proficiency':new_survey.proficiency, 'experience':new_survey.experience, 'education':new_survey.education}
+	
+		return response
 
 api.add_resource(AccessView, '/api/v1/access/')
 api.add_resource(RefreshersView, '/api/v1/refreshers')
 api.add_resource(ActivityView, '/api/v1/activity')
-api.add_resource(SnippetView, '/api/v1/snippet/')
+api.add_resource(SnippetView, '/api/v1/snippets')
+api.add_resource(SurveyView, '/api/v1/surveys')

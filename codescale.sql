@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2014 at 12:18 AM
+-- Generation Time: Dec 04, 2014 at 04:46 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -69,6 +69,21 @@ INSERT INTO `snippets` (`id`, `type`, `filename`, `output`) VALUES
 (12, 'REFRESHER', 'switch_refresher.txt', '10'),
 (13, 'WHILE_LOOP', 'while_activity_1_8lines.txt', '10'),
 (14, 'REFRESHER', 'while_refresher.txt', '10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `survey`
+--
+
+CREATE TABLE IF NOT EXISTS `survey` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(45) NOT NULL,
+  `proficiency` int(11) NOT NULL,
+  `experience` varchar(10) NOT NULL,
+  `education` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
