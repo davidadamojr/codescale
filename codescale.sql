@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2014 at 04:46 PM
+-- Generation Time: Dec 05, 2014 at 01:45 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,7 +34,15 @@ CREATE TABLE IF NOT EXISTS `access_codes` (
   `used` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `access_codes`
+--
+
+INSERT INTO `access_codes` (`id`, `code`, `used`) VALUES
+(1, 'abcd1234', 0),
+(2, 'dcta1234', 0);
 
 -- --------------------------------------------------------
 
@@ -83,7 +91,15 @@ CREATE TABLE IF NOT EXISTS `survey` (
   `experience` varchar(10) NOT NULL,
   `education` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `survey`
+--
+
+INSERT INTO `survey` (`id`, `code`, `proficiency`, `experience`, `education`) VALUES
+(1, 'abcd1234', 3, '>4', 'PhD Student'),
+(2, 'abcd1234', 3, '>4', 'PhD Student');
 
 -- --------------------------------------------------------
 
@@ -99,7 +115,14 @@ CREATE TABLE IF NOT EXISTS `trials` (
   `is_correct` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `snippet_id` (`snippet_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `trials`
+--
+
+INSERT INTO `trials` (`id`, `access_code`, `snippet_id`, `time_elapsed`, `is_correct`) VALUES
+(1, 'abcd1234', 3, 23, 3);
 
 --
 -- Constraints for dumped tables

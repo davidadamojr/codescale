@@ -1,13 +1,16 @@
 <div class="container welcome-screen">
 	<div class="login">
 		<div class="col-md-5 access-code-form">
-			<form action="#/overview" role="form">
+			<div ng-show="invalidCode">
+				<p>Invalid code</p>
+			</div>
+			<form role="form">
 				<div class="form-group">
 					<label for="accesscode">Access Code</label>
-					<input type="text" class="form-control" id="accesscode" placeholder="Access code" />
+					<input type="text" class="form-control" id="accesscode" ng-model="userCode" placeholder="Access code" />
 				</div>
 				
-				<a href="#/overview" class="btn btn-default">Submit</a>
+				<button access-code class="btn btn-default">Submit</button>
 			</form>
 		</div>
 	</div>

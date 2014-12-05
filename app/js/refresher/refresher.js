@@ -6,51 +6,27 @@ function($routeProvider) {
 		templateUrl : 'partials/refresher/refresher.html',
 		controller : 'RefresherCtrl'
 	});
-}]).controller('RefresherCtrl', ['$scope', '$location',
-function($scope, $location) {
-	
+}])
+.factory('refreshersFactory', ['apiBaseUrl', '$http', function(apiBaseUrl, $http){
+	var snippets;
+	return {
+		get: function(data)$http.get(apiBaseUrl + '/api/v1/refreshers').success(function(data){
+			snippets = data.snippets;
+		});
+	};
+	return snippets;
+}])
+.controller('RefresherCtrl', ['$scope', '$location', 'refreshersService',
+function($scope, $location, refreshersService) {
+	refreshersService.getSnippets();
 	$scope.currentSnippet = 0;
-	$scope.snippets = [{
-		snippetText : "This is snippet 1",
-		output : "65"
-	}, {
-		snippetText : "This is snippet 2",
-		output : "82"
-	}, {
-		snippetText : "This is snippet 3",
-		output : "71"
-	}];
+	$scope.snippets = refreshersService.snippets;
 	
-	$scope.numberOfSnippets = $scope.snippets.length;
+	$scope.numberOfSnippets = refreshersService.snippets.length;
 	$scope.showOutput = false;
 	$scope.disableFinish = true;
 	$scope.disableNext = false;
 	$scope.disableShowOutput = false;
-	
-	/*$scope.getNext = function(){
-		$scope.showOutput = false;
-		
-		if ($scope.currentSnippet < $scope.snippets.length  - 1){
-			$scope.currentSnippet = $scope.currentSnippet + 1;
-			$scope.disableFinish = true;
-			$scope.disableNext = false;
-		}
-		
-		if ($scope.currentSnippet == $scope.snippets.length - 1){
-			$scope.disableFinish = false;
-			$scope.disableNext = true;
-		}
-		
-		$scope.disableShowOutput = false;
-		$scope.$apply();
-	};
-	
-	$scope.showRefresherOutput = function(){
-		$scope.showOutput = true;
-		$scope.disableShowOutput = true;
-		$scope.$apply();
-	};*/
-	
 }])
 .directive('refresherFinish', ['$location', function($location){
 	return {
