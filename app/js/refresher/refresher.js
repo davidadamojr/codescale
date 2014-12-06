@@ -7,27 +7,22 @@ function($routeProvider) {
 		controller : 'RefresherCtrl'
 	});
 }])
-.factory('refreshersFactory', ['apiBaseUrl', '$http', function(apiBaseUrl, $http){
-	var snippets;
-	return {
-		get: function(data)$http.get(apiBaseUrl + '/api/v1/refreshers').success(function(data){
-			snippets = data.snippets;
-		});
-	};
-	return snippets;
-}])
-.controller('RefresherCtrl', ['$scope', '$location', 'refreshersService',
-function($scope, $location, refreshersService) {
-	refreshersService.getSnippets();
+
+.controller('RefresherCtrl', ['$scope', '$location', 'snippetsService',
+function($scope, $location, snippetsService) {
+
+	snippetsService.getSnippets('/api/v1/refreshers').then(function(response){
+		$scope.snippets = response.data.snippets;
+		$scope.numberOfSnippets = $scope.snippets.length;
+	});
+
 	$scope.currentSnippet = 0;
-	$scope.snippets = refreshersService.snippets;
-	
-	$scope.numberOfSnippets = refreshersService.snippets.length;
 	$scope.showOutput = false;
 	$scope.disableFinish = true;
 	$scope.disableNext = false;
 	$scope.disableShowOutput = false;
 }])
+
 .directive('refresherFinish', ['$location', function($location){
 	return {
 		restrict: 'A',
@@ -38,6 +33,7 @@ function($scope, $location, refreshersService) {
 		}
 	};
 }])
+
 .directive('refresherNext', function(){
 	return {
 		restrict: 'A',
@@ -62,6 +58,7 @@ function($scope, $location, refreshersService) {
 		}
 	}
 })
+
 .directive('refresherOutput', function(){
 	return {
 		restrict: 'A',
