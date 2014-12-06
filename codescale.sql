@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 05, 2014 at 01:45 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: Dec 05, 2014 at 08:47 PM
+-- Server version: 5.5.40-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `access_codes` (
 --
 
 INSERT INTO `access_codes` (`id`, `code`, `used`) VALUES
-(1, 'abcd1234', 0),
+(1, 'abcd1234', 1),
 (2, 'dcta1234', 0);
 
 -- --------------------------------------------------------

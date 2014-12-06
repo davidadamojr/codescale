@@ -1,10 +1,8 @@
 <div class="container">
 	<div class="row" ng-hide="showInfoScreen || showFailScreen">
 		<div class="snippet-section col-md-9">
-			<h3>Code Snippet {{currentSnippet + 1}} of {{numberOfSnippets}}</h3>
-			<div class="snippet">
-				{{snippets[currentSnippet].snippetText}}
-			</div>
+			<h3>Main Activity: Code Snippet {{currentSnippet + 1}} of {{numberOfSnippets}}</h3>
+			<div language="java" hljs source="snippets[currentSnippet].snippet"></div>
 			<br/>
 			
 		</div>

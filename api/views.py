@@ -36,7 +36,7 @@ class RefreshersView(restful.Resource):
 		response['snippets'] = []
 		for snippet in refreshers:
 			file_handle = open('snippets/' + snippet.filename, 'r')
-			file_contents = file_handle.read()
+			file_contents = file_handle.read().strip()
 			snippet_details = {'snippet':file_contents, 'output':snippet.output}
 			response['snippets'].append(snippet_details)
 			file_handle.close()
@@ -51,8 +51,8 @@ class ActivityView(restful.Resource):
 		response['snippets'] = []
 		for snippet in activities:
 			file_handle = open('snippets/' + snippet.filename, 'r')
-			file_contents = file_handle.read()
-			snippet_details = {'snippet':file_contents, 'output':snippet.output}
+			file_contents = file_handle.read().strip()
+			snippet_details = {'id':snippet.id, 'snippet':file_contents, 'output':snippet.output}
 			response['snippets'].append(snippet_details)
 			file_handle.close()
 	

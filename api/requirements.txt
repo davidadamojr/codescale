@@ -3,3 +3,7 @@ Flask-RESTful==0.2.12
 Flask-SQLAlchemy==1.0
 SQLAlchemy==0.9.7
 SQLAlchemy-Utils==0.26.9
+six==1.7.3
+validators==0.6.0 
+Werkzeug==0.9.6
+Jinja2==2.7.3
