@@ -9,23 +9,40 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
   });
 }])
 
-.controller('MainActivityCtrl', ['$scope', 'snippetsService', '$cookieStore', function($scope, snippetsService, $cookieStore) {
-
+.controller('MainActivityCtrl', ['$scope', 'snippetsService', '$cookieStore', '$interval', function($scope, snippetsService, $cookieStore, $interval) {
+	var timer;
+	
+	$scope.startTimer = function(){
+	  $scope.timeElapsed = 0;
+	  timer = $interval(function(){
+	    $scope.timeElapsed = $scope.timeElapsed + 1;
+	  }, 1000);
+	};
+	
+	$scope.stopTimer = function(){
+	  if (angular.isDefined(timer)){
+        $interval.cancel(timer);
+	  }
+	}
+	
     function init(){
 	    var currentSnippet;
 		if (currentSnippet = $cookieStore.get('codeScale.currentSnippet')){
 		  $scope.currentSnippet = currentSnippet;
+		  $scope.showingFirstSnippet = false;
+		  $scope.showInfoScreen = false;
+		  $scope.showFailScreen = false;
+		  $scope.startTimer(); //when the page is refreshed, restart the timer for the current activity
 		} else {
 	      $scope.currentSnippet = 0; //no snippet presented to the user yet
+		  $scope.disableFinish = true;
+		  $scope.showLoading = true;
+		  $scope.infoText = "The main activity is about to begin. You will be presented with code snippets and will be required to enter the expected output of the code into the text input on the right side of the screen.";
+		  $scope.showInfoScreen = true;
 		}
 	}
 	
 	init();
-	
-	$scope.disableFinish = true;
-	$scope.showLoading = true;
-	$scope.infoText = "The main activity is about to begin. You will be presented with code snippets and will be required to enter the expected output of the code into the text input on the right side of the screen.";
-	$scope.showInfoScreen = true;
 	
 	//$scope.currentSnippet = 0; //no snippet presented to the user yet
 	
@@ -37,6 +54,10 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 	$scope.showingFirstSnippet = true;
 	$scope.showFailScreen = false;
 	$scope.providedOutput = "";
+	
+	$scope.$on('$destroy', function(){
+		$scope.stopTimer();
+	});
 }])
 .directive('showActivity', ['$cookieStore', function($cookieStore){
 	return {
@@ -52,6 +73,7 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 				}
 				//scope.showingFirstSnippet = false;
 				scope.correctOutput = false;
+				scope.startTimer();
 				scope.$apply();
 			});
 		}
@@ -62,6 +84,7 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 		restrict: 'A',
 		link: function(scope, element, attrs){
 			element.on("click", function(){
+			    scope.stopTimer();
 			    var snippet_id = scope.snippets[scope.currentSnippet].id;
 				var elapsed_time = 28; //change this later
 				var is_correct;
@@ -88,7 +111,7 @@ angular.module('codeScaleApp.mainactivity', ['ngRoute'])
 				//send attempt data
 				var snippet_id = scope.snippets[scope.currentSnippet].id;
 				var userCode = $cookieStore.get('codeScale.code');
-				trialService.recordAttempt(userCode, snippet_id, elapsed_time, is_correct).
+				trialService.recordAttempt(userCode, snippet_id, scope.timeElapsed, is_correct).
 				  error(function(data, status, headers, config){
 				    alert("There was an error recording your attempt! Please try again.");
 				  });

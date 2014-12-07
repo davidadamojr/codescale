@@ -23,6 +23,15 @@ config(['$routeProvider', 'hljsServiceProvider', function($routeProvider, hljsSe
   });
 }])
 
+.run(['$location', '$rootScope', '$cookieStore', function($location, $rootScope, $cookieStore){
+  $rootScope.$on('$routeChangeStart', function(event){
+    if (!$cookieStore.get('codeScale.code')){
+	  event.preventDefault();
+	  $location.path('/welcome');
+	}
+  });
+}])
+
 .value('apiBaseUrl', 'http://localhost:5000')
 
 .service('snippetsService', ['apiBaseUrl', '$http', function(apiBaseUrl, $http){

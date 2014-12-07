@@ -9,9 +9,10 @@ angular.module('codeScaleApp.survey', ['ngRoute'])
   });
 }])
 
-.controller('SurveyCtrl', ['$location', '$scope', 'surveyService', 'sessionService', function($location, $scope, surveyService, sessionService) {
+.controller('SurveyCtrl', ['$location', '$scope', 'surveyService', '$cookieStore', function($location, $scope, surveyService, $cookieStore) {
 	$scope.finish = function(){
-		surveyService.submitSurvey(sessionService.code, $scope.education, $scope.experience, $scope.interrupted, $scope.proficiency)
+		var userCode = $cookieStore.get('codeScale.code');
+		surveyService.submitSurvey(userCode, $scope.education, $scope.experience, $scope.interrupted, $scope.proficiency)
 		  .error(function(data, status, headers, config){
 		    alert("There was a problem submitting your survey. Please try again.");
 		  });

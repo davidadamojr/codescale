@@ -10,13 +10,15 @@ angular.module('codeScaleApp.welcome', ['ngRoute'])
 }])
 
 .controller('WelcomeCtrl', ['$scope', function($scope) {
-  $scope.invalidCode = false;
+  $scope.showFeedback = false;
 }])
 .directive('accessCode', ['$http', '$location', 'apiBaseUrl', '$cookieStore', function($http, $location, apiBaseUrl, $cookieStore){
   return {
     restrict: 'A',
 	link: function(scope, element, attrs){
 	  element.on("click", function(){
+	    scope.feedbackInfo = "Authenticating...";
+		scope.showFeedback = true;
 	    $http.post(apiBaseUrl + '/api/v1/access', {code:scope.userCode}).success(function(data){
 		  scope.authResponse = data;
 		  if (scope.authResponse.authorized){
@@ -24,7 +26,7 @@ angular.module('codeScaleApp.welcome', ['ngRoute'])
 			$cookieStore.put('codeScale.code', scope.userCode);
 			$location.url('/refresher');
 		  } else {
-			scope.invalidCode = true;
+			scope.feedbackInfo = "Invalid Code";
 		  }
 		});
 		scope.$apply();

@@ -1,8 +1,8 @@
 <div class="container welcome-screen">
 	<div class="login">
 		<div class="col-md-5 access-code-form">
-			<div ng-show="invalidCode">
-				<p>Invalid code</p>
+			<div ng-show="showFeedback">
+				<p>{{feedbackInfo}}</p>
 			</div>
 			<form role="form">
 				<div class="form-group">
