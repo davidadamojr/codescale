@@ -47,12 +47,14 @@ class Survey(db.Model):
     proficiency = db.Column(db.Integer)
     experience = db.Column(db.String(10))
     education = db.Column(db.String(45))
+    interrupted = db.Column(db.Integer)
 
-    def __init__(self, code, proficiency, experience, education):
+    def __init__(self, code, proficiency, experience, education, interrupted):
         self.code = code
         self.proficiency = proficiency
         self.experience = experience
         self.education = education
+        self.interrupted = interrupted
 
     def __repr__(self):
         return '<Survey %r>' % self.code

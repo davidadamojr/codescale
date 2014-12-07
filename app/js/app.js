@@ -5,6 +5,7 @@ angular.module('codeScaleApp', [
   'ngRoute',
   'ngResource',
   'hljs',
+  'ngCookies',
   'codeScaleApp.welcome',
   'codeScaleApp.overview',
   'codeScaleApp.refresher',
@@ -28,14 +29,16 @@ config(['$routeProvider', 'hljsServiceProvider', function($routeProvider, hljsSe
 	this.getSnippets = function(endpoint){
 		return $http.get(apiBaseUrl + endpoint);
 	};
-}])
-
+}]);
+/*
 .service('sessionService', function(){
   this.create = function(code){
     this.code = code;
   };
 
-  this.destroy = function(code){
+  this.destroy = function(){
     this.code = null;
   };
-});
+  
+  return this;
+});*/

@@ -1,31 +1,37 @@
 <div class="container">
-	<form>
+	<form name="surveyForm" class="survey-form" novalidate ng-submit="finish()">
 		<div class="form-group">
 			<p>How will you rate your Java proficiency?</p>
-			<input type="radio" name="proficiency" /> 5<br/>
-			<input type="radio" name="proficiency" /> 4<br/>
-			<input type="radio" name="proficiency" /> 3<br/>
-			<input type="radio" name="proficiency" /> 2<br/>
-			<input type="radio" name="proficiency" /> 1
+			<input type="radio" name="proficiency" value="5" ng-model="proficiency" ng-required="!proficiency" /> 5 - Superstar<br/>
+			<input type="radio" name="proficiency" value="4" ng-model="proficiency" ng-required="!proficiency" /> 4 - Expert<br/>
+			<input type="radio" name="proficiency" value="3" ng-model="proficiency" ng-required="!proficiency" /> 3 - I'm good<br/>
+			<input type="radio" name="proficiency" value="2" ng-model="proficiency" ng-required="!proficiency" /> 2 - Intermediate<br/>
+			<input type="radio" name="proficiency" value="1" ng-model="proficiency" ng-required="!proficiency" /> 1 - Beginner
 		</div>
 		
 		<div class="form-group">
 			<p>How many years of programming experience do you have?</p>
-			<input type="radio" name="experience" /> Less than 1 year<br/>
-			<input type="radio" name="experience" /> Less than 2 years<br/>
-			<input type="radio" name="experience" /> Less than 3 years<br/>
-			<input type="radio" name="experience" /> Less than 4 years<br/>
-			<input type="radio" name="experience" /> Greater than 4 years<br/>
+			<input type="radio" name="experience" value="<1" ng-model="experience" ng-required="!experience" /> Less than 1 year<br/>
+			<input type="radio" name="experience" value="<2" ng-model="experience" ng-required="!experience" /> Less than 2 years<br/>
+			<input type="radio" name="experience" value="<3" ng-model="experience" ng-required="!experience" /> Less than 3 years<br/>
+			<input type="radio" name="experience" value="<4" ng-model="experience" ng-required="!experience" /> Less than 4 years<br/>
+			<input type="radio" name="experience" value=">5" ng-model="experience" ng-required="!experience" /> Greater than 4 years<br/>
 		</div>
 		
 		<div class="form-group">
 			<p>What is your highest educational level attained (or in progress)?</p>
-			<input type="radio" name="education" /> High School<br/>
-			<input type="radio" name="education" /> Bachelor's Degree<br/>
-			<input type="radio" name="education" /> Masters Degree<br/>
-			<input type="radio" name="education" /> Doctorate Degree<br/>	
+			<input type="radio" name="education" value="High School" ng-model="education" ng-required="!education" /> High School<br/>
+			<input type="radio" name="education" value="Bachelors" ng-model="education" ng-required="!education" /> Bachelor's Degree<br/>
+			<input type="radio" name="education" value="Masters" ng-model="education" ng-required="!education" /> Masters Degree<br/>
+			<input type="radio" name="education" value="PhD" ng-model="education" ng-required="!education" /> Doctorate Degree<br/>	
+		</div>
+		
+		<div class="form-group">
+			<p>Did you experience any interruptions during this experiment?</p>
+			<input type="radio" name="interrupted" value="1" ng-model="interrupted" ng-required="!interrupted" /> Yes<br/>
+			<input type="radio" name="interrupted" value="0" ng-model="interrupted" ng-required="!interrupted" /> No<br/>
 		</div>
 		<br/>
-		<button ng-click="finished()" class="btn btn-primary">Submit</button>
+		<button ng-disabled="surveyForm.$invalid" type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>

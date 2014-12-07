@@ -9,6 +9,6 @@ angular.module('codeScaleApp.thankyou', ['ngRoute'])
   });
 }])
 
-.controller('ThankYouCtrl', [function() {
-
+.controller('ThankYouCtrl', ['$cookieStore', function($cookieStore) {
+  $cookieStore.remove('codeScale.code');
 }]);

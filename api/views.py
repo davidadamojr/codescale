@@ -14,6 +14,7 @@ parser.add_argument('is_correct', type=int)
 parser.add_argument('proficiency', type=int)
 parser.add_argument('education', type=str)
 parser.add_argument('experience', type=str)
+parser.add_argument('interrupted', type=int)
 
 class AccessView(restful.Resource):
 	def post(self):
@@ -74,11 +75,11 @@ class SurveyView(restful.Resource):
 	def post(self):
 		args = parser.parse_args()
 		response = {}
-		survey = Survey(args['code'], args['proficiency'], args['experience'], args['education'])
+		survey = Survey(args['code'], args['proficiency'], args['experience'], args['education'], args['interrupted'])
 		db.session.add(survey)
 		db.session.commit()
 		response['error'] = False
-		response['survey'] = {'code': survey.code, 'proficiency':survey.proficiency, 'experience':survey.experience, 'education':survey.education}
+		response['survey'] = {'code': survey.code, 'proficiency':survey.proficiency, 'experience':survey.experience, 'education':survey.education, 'interrupted':survey.interrupted}
 	
 		return response
 

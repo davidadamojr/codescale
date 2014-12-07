@@ -1,5 +1,8 @@
 <div class="container">
-	<div class="row">
+	<div class="col-md-9" ng-show="showLoading">
+		Loading...
+	</div>
+	<div class="row" ng-Hide="showLoading">
 		<div class="snippet-section col-md-9">
 			<h3>Practice Sessions: Code Snippet {{currentSnippet + 1}} of {{numberOfSnippets}}</h3>
 			<div hljs language="java" source="snippets[currentSnippet].snippet"></div>

@@ -30,3 +30,7 @@ header {
 .info-screen {
 	margin-top: 40px;
 }
+
+.survey-form input.ng-invalid {
+	background-color: #FA787E;
+}

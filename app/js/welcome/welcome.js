@@ -12,7 +12,7 @@ angular.module('codeScaleApp.welcome', ['ngRoute'])
 .controller('WelcomeCtrl', ['$scope', function($scope) {
   $scope.invalidCode = false;
 }])
-.directive('accessCode', ['$http', '$location', 'apiBaseUrl', 'sessionService', function($http, $location, apiBaseUrl, sessionService){
+.directive('accessCode', ['$http', '$location', 'apiBaseUrl', '$cookieStore', function($http, $location, apiBaseUrl, $cookieStore){
   return {
     restrict: 'A',
 	link: function(scope, element, attrs){
@@ -20,7 +20,8 @@ angular.module('codeScaleApp.welcome', ['ngRoute'])
 	    $http.post(apiBaseUrl + '/api/v1/access', {code:scope.userCode}).success(function(data){
 		  scope.authResponse = data;
 		  if (scope.authResponse.authorized){
-   			sessionService.create(scope.userCode);
+   			//sessionService.create(scope.userCode);
+			$cookieStore.put('codeScale.code', scope.userCode);
 			$location.url('/refresher');
 		  } else {
 			scope.invalidCode = true;

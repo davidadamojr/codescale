@@ -10,10 +10,12 @@ function($routeProvider) {
 
 .controller('RefresherCtrl', ['$scope', '$location', 'snippetsService',
 function($scope, $location, snippetsService) {
+    $scope.showLoading = true;
 
 	snippetsService.getSnippets('/api/v1/refreshers').then(function(response){
 		$scope.snippets = response.data.snippets;
 		$scope.numberOfSnippets = $scope.snippets.length;
+		$scope.showLoading = false;
 	});
 
 	$scope.currentSnippet = 0;
