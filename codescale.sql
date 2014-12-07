@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 07, 2014 at 05:10 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.12
+-- Host: 127.0.0.1
+-- Generation Time: Dec 08, 2014 at 12:42 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,15 +34,43 @@ CREATE TABLE IF NOT EXISTS `access_codes` (
   `used` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `code` (`code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `access_codes`
 --
 
 INSERT INTO `access_codes` (`id`, `code`, `used`) VALUES
-(1, 'abcd1234', 1),
-(2, 'dcta1234', 1);
+(1, 'abc123', 0),
+(2, 'abd124', 0),
+(3, 'abe125', 0),
+(4, 'abf126', 0),
+(5, 'abg127', 0),
+(6, 'abh128', 0),
+(7, 'abi129', 0),
+(8, 'abj120', 0),
+(9, 'abk132', 0),
+(10, 'abl134', 0),
+(11, 'abm135', 0),
+(12, 'abn136', 0),
+(13, 'abo137', 0),
+(14, 'abp138', 0),
+(15, 'abq139', 0),
+(16, 'abr130', 0),
+(17, 'abs142', 0),
+(18, 'abt143', 0),
+(19, 'abu145', 0),
+(20, 'abv146', 0),
+(21, 'abw147', 0),
+(22, 'abx148', 0),
+(23, 'aby149', 0),
+(24, 'abz140', 0),
+(25, 'acb152', 0),
+(26, 'acd153', 0),
+(27, 'ace154', 0),
+(28, 'acf156', 0),
+(29, 'acg157', 0),
+(30, 'ach158', 0);
 
 -- --------------------------------------------------------
 
@@ -93,16 +121,7 @@ CREATE TABLE IF NOT EXISTS `survey` (
   `interrupted` tinyint(4) NOT NULL,
   `when` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `survey`
---
-
-INSERT INTO `survey` (`id`, `code`, `proficiency`, `experience`, `education`, `interrupted`, `when`) VALUES
-(1, 'abcd1234', 3, '>4', 'PhD Student', 0, '2014-12-07 09:03:18'),
-(2, 'abcd1234', 3, '>4', 'PhD Student', 0, '2014-12-07 09:03:18'),
-(3, 'dcta1234', 4, '<1', 'High School', 1, '2014-12-07 10:10:31');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -118,66 +137,7 @@ CREATE TABLE IF NOT EXISTS `trials` (
   `is_correct` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `snippet_id` (`snippet_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
-
---
--- Dumping data for table `trials`
---
-
-INSERT INTO `trials` (`id`, `access_code`, `snippet_id`, `time_elapsed`, `is_correct`) VALUES
-(2, 'abcd1234', 1, 28, 0),
-(3, 'abcd1234', 1, 28, 1),
-(4, 'abcd1234', 2, 28, 1),
-(5, 'abcd1234', 4, 28, 1),
-(6, 'abcd1234', 6, 28, 1),
-(7, 'abcd1234', 8, 28, 1),
-(8, 'abcd1234', 10, 28, 1),
-(9, 'abcd1234', 1, 28, 1),
-(10, 'abcd1234', 2, 28, 1),
-(11, 'abcd1234', 4, 28, 1),
-(12, 'abcd1234', 6, 28, 1),
-(13, 'abcd1234', 8, 28, 1),
-(14, 'abcd1234', 10, 28, 1),
-(15, 'dcta1234', 1, 28, 1),
-(16, 'dcta1234', 2, 28, 1),
-(17, 'dcta1234', 4, 28, 1),
-(18, 'dcta1234', 6, 28, 1),
-(19, 'dcta1234', 8, 28, 1),
-(20, 'dcta1234', 10, 28, 1),
-(21, 'abcd1234', 1, 28, 1),
-(22, 'abcd1234', 2, 28, 1),
-(23, 'abcd1234', 4, 28, 1),
-(24, 'abcd1234', 6, 28, 1),
-(25, 'abcd1234', 8, 28, 1),
-(26, 'abcd1234', 10, 28, 1),
-(27, 'abcd1234', 1, 28, 1),
-(28, 'abcd1234', 2, 28, 1),
-(29, 'abcd1234', 4, 28, 1),
-(30, 'abcd1234', 6, 28, 1),
-(31, 'abcd1234', 8, 28, 1),
-(32, 'abcd1234', 10, 28, 1),
-(33, 'dcta1234', 1, 28, 1),
-(34, 'dcta1234', 2, 28, 1),
-(35, 'dcta1234', 4, 28, 1),
-(36, 'dcta1234', 6, 28, 1),
-(37, 'dcta1234', 8, 28, 1),
-(38, 'dcta1234', 10, 28, 1),
-(39, 'abcd1234', 1, 28, 1),
-(40, 'abcd1234', 2, 28, 0),
-(41, 'abcd1234', 2, 28, 0),
-(42, 'abcd1234', 2, 28, 0),
-(43, 'abcd1234', 2, 28, 0),
-(44, 'abcd1234', 2, 28, 1),
-(45, 'abcd1234', 4, 28, 1),
-(46, 'abcd1234', 6, 28, 1),
-(47, 'abcd1234', 8, 28, 1),
-(48, 'abcd1234', 10, 28, 1),
-(49, 'dcta1234', 1, 28, 1),
-(50, 'dcta1234', 2, 28, 1),
-(51, 'dcta1234', 4, 28, 1),
-(52, 'dcta1234', 6, 28, 1),
-(53, 'dcta1234', 8, 28, 1),
-(54, 'dcta1234', 10, 28, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables
