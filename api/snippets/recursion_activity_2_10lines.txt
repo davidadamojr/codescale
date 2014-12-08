@@ -3,7 +3,7 @@ public class Activity {
     if (j == 1)
       return j;
     else
-      return j + 1 * myfunc(j-1);
+      return j + 1 + myfunc(j-1);
   }
   
   public static void main(String[] args){

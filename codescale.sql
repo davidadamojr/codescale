@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2014 at 10:40 PM
+-- Generation Time: Dec 09, 2014 at 12:58 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -113,7 +113,7 @@ INSERT INTO `snippets` (`id`, `type`, `filename`, `output`) VALUES
 (20, 'FOR_LOOP', 'for_activity_3_5lines.txt', '-8'),
 (21, 'IF_ELSE', 'if_activity_2_9lines.txt', '8'),
 (22, 'IF_ELSE', 'if_activity_3_9lines.txt', '4'),
-(23, 'RECURSION', 'recursion_activity_2_10lines.txt', '10'),
+(23, 'RECURSION', 'recursion_activity_2_10lines.txt', '13'),
 (24, 'RECURSION', 'recursion_activity_3_10lines.txt', '0'),
 (25, 'WHILE_LOOP', 'while_activity_2_8lines.txt', '-9'),
 (26, 'WHILE_LOOP', 'while_activity_3_8lines.txt', '-1'),
