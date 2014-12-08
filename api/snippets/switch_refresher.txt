@@ -1,19 +1,19 @@
 public class Refresher3 {
   public static void main(String[] args){
     int j = 5;
-	switch(i){
-	  case 0:
-	    System.out.println("Germaine");
-		break;
-	  case 3: 
-	    System.out.println("Mallory");
-		break;
-	  case 4:
-	    System.out.println("Dmitry");
-	    break;
-	  case 5:
-	    System.out.println("Quentin");
-		break;
-	}
+    switch(j){
+      case 0:
+        System.out.println(Integer.toString(1));
+	break;
+      case 3: 
+	System.out.println(Integer.toString(8));
+        break;
+      case 4:
+	System.out.println(Integer.toString(2));
+	break;
+      case 5:
+	System.out.println(Integer.toString(5));
+        break;
+    }
   }
 }

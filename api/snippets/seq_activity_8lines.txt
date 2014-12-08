@@ -1,11 +1,11 @@
-public class Activity1 {
+public class Activity {
   public static void main(String[] args){
-    ArrayList<Integer> myList;
+    ArrayList<Integer> myList = new ArrayList<Integer>();
     int firstScore;
     int result;
-    myList.add(10);
-    myList.add(20);
-    firstScore = myList[0];
+    myList.add(28);
+    myList.add(12);
+    firstScore = myList.get(0);
     result = firstScore;
     System.out.println(Integer.toString(result));	
   }

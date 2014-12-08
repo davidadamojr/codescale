@@ -1,15 +1,15 @@
-public class Refresher4 {
+public class Refresher {
   public static int myfunc(int j){
     if (j == 1)
-	  return j;
-	else
-	  return j * myfunc(j-1);
+      return j;
+    else
+      return j * myfunc(j-1);
   }
   
   public static void main(String[] args){
-    int p = 4;
-	int result;
-	result = myfunc(p);
-	System.out.println(p);
+    int p = 3;
+    int result;
+    result = myfunc(p);
+    System.out.println(result);
   }
 }

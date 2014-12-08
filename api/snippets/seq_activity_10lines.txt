@@ -1,14 +1,14 @@
-public class Activity1 {
+public class Activity {
   public static void main(String[] args){
-    ArrayList<Integer> myList;
+    ArrayList<Integer> myList = new ArrayList<Integer>();
     int firstScore, secondScore;
     int result;
     myList.add(10);
     myList.add(20);
     myList.add(30);
-    firstScore = myList[2];
-    secondScore = myList[0];
-    result = firstScore;
+    firstScore = myList.get(0);
+    secondScore = myList.get(1);
+    result = firstScore + secondScore;
     System.out.println(Integer.toString(result));	
   }
 }

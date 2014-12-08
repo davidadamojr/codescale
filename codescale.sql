@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2014 at 08:48 PM
+-- Generation Time: Dec 08, 2014 at 10:40 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -98,13 +98,13 @@ INSERT INTO `snippets` (`id`, `type`, `filename`, `output`) VALUES
 (5, 'REFRESHER', 'for_refresher.txt', '6'),
 (6, 'IF_ELSE', 'if_activity_1_9lines.txt', '6'),
 (7, 'REFRESHER', 'if_refresher.txt', '58'),
-(8, 'RECURSION', 'recursion_activity_1_9lines.txt', '10'),
-(9, 'REFRESHER', 'recursion_refresher.txt', '10'),
-(10, 'SEQ_9', 'seq_activity_9lines.txt', '10'),
-(11, 'REFRESHER', 'seq_refresher.txt', '10'),
-(12, 'REFRESHER', 'switch_refresher.txt', '10'),
-(13, 'WHILE_LOOP', 'while_activity_1_8lines.txt', '10'),
-(14, 'REFRESHER', 'while_refresher.txt', '10'),
+(8, 'RECURSION', 'recursion_activity_1_9lines.txt', '2'),
+(9, 'REFRESHER', 'recursion_refresher.txt', '6'),
+(10, 'SEQ_9', 'seq_activity_9lines.txt', '16'),
+(11, 'REFRESHER', 'seq_refresher.txt', '2'),
+(12, 'REFRESHER', 'switch_refresher.txt', '5'),
+(13, 'WHILE_LOOP', 'while_activity_1_8lines.txt', '4'),
+(14, 'REFRESHER', 'while_refresher.txt', '6'),
 (15, 'SWITCH_CASE', 'case_activity_2_9lines.txt', '5'),
 (16, 'SWITCH_CASE', 'case_activity_3_9lines.txt', '11'),
 (17, 'DO_WHILE', 'do_activity_2_8lines.txt', '-20'),
@@ -114,12 +114,12 @@ INSERT INTO `snippets` (`id`, `type`, `filename`, `output`) VALUES
 (21, 'IF_ELSE', 'if_activity_2_9lines.txt', '8'),
 (22, 'IF_ELSE', 'if_activity_3_9lines.txt', '4'),
 (23, 'RECURSION', 'recursion_activity_2_10lines.txt', '10'),
-(24, 'RECURSION', 'recursion_activity_3_10lines.txt', '10'),
-(25, 'WHILE_LOOP', 'while_activity_2_8lines.txt', '10'),
-(26, 'WHILE_LOOP', 'while_activity_3_8lines.txt', '10'),
+(24, 'RECURSION', 'recursion_activity_3_10lines.txt', '0'),
+(25, 'WHILE_LOOP', 'while_activity_2_8lines.txt', '-9'),
+(26, 'WHILE_LOOP', 'while_activity_3_8lines.txt', '-1'),
 (27, 'SEQ_5', 'seq_activity_5lines.txt', '10'),
-(28, 'SEQ_8', 'seq_activity_8lines.txt', '10'),
-(29, 'SEQ_10', 'seq_activity_10lines.txt', '10');
+(28, 'SEQ_8', 'seq_activity_8lines.txt', '28'),
+(29, 'SEQ_10', 'seq_activity_10lines.txt', '30');
 
 -- --------------------------------------------------------
 

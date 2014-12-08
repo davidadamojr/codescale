@@ -1,13 +1,13 @@
 public class Activity1 {
   public static void main(String[] args){
-    ArrayList<Integer> myList;
+    ArrayList<Integer> myList = new ArrayList<Integer>();
     int firstScore;
     int result;
-    myList.add(10);
+    myList.add(15);
     myList.add(20);
     myList.add(30);
-    firstScore = myList[0];
-    result = firstScore;
+    firstScore = myList.get(0);
+    result = firstScore + 1;
     System.out.println(Integer.toString(result));	
   }
 }

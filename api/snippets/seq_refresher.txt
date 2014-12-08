@@ -1,10 +1,11 @@
 public class Refresher2 {
   public static void main(String[] args){
-    int sum = 5 + 5;
-    ArrayList<Integer> myList;
+    ArrayList<Integer> myList = new ArrayList<Integer>();
+    int result;
     myList.add(2);
     myList.add(3);
     myList.add(4);
-    System.out.println(Integer.toString(myList[0]));	
+    result = myList.get(0);
+    System.out.println(Integer.toString(result));	
   }
 }
