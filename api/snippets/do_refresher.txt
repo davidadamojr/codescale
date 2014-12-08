@@ -1,10 +1,10 @@
 public class Refresher4 {
   public static void main(String[] args){
     int result;
-	int i = 4;
-	do {
-	  result = result + i;
-	} while (i>0);
+    int i = 4;
+    do {
+      result = result + i;
+    } while (i>0);
     System.out.println(result);
   }
 }

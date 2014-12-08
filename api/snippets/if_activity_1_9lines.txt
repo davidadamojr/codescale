@@ -1,0 +1,22 @@
+public class Activity2 {
+  public static void main(String[] args){
+    int i = 0;
+    int result;
+    ArrayList<Integer> myList;
+    if (i == 0){
+      myList.append(2);
+      result = myList[0] + 4;
+      System.out.println(Integer.toString(result));
+    } 
+    else if (i == 1) {
+      myList.append(2);
+      result = myList[0] * 2;
+      System.out.println(Integer.toString(result));
+    }
+    else if (i == 2){
+      myList.append(4);
+      result = 4 + myList[0];
+      System.out.println(Integer.toString(result));
+    }
+  }
+}
