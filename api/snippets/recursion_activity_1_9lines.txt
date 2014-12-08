@@ -1,0 +1,14 @@
+public class Activity6 {
+  public static int myfunc(int p, int q){
+    if (q == 0) return p;
+    else return myfunc(q, p %q);
+  }
+  
+  public static void main(String[] args){
+    int p = 18;
+    int q = 8;
+    int result;
+    result = myfunc(p, q);
+    System.out.println(Integer.toString(result));
+  }
+}

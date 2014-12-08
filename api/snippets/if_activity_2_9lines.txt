@@ -1,21 +1,21 @@
-public class Activity2 {
+public class Activity {
   public static void main(String[] args){
     int i = 2;
     int result;
-    ArrayList<Integer> myList;
+    ArrayList<Integer> myList = new ArrayList<Integer>();
     if (i == 0){
-      myList.append(2);
-      result = myList[0] + 4;
+      myList.add(2);
+      result = myList.get(0) + 4;
       System.out.println(Integer.toString(result));
     } 
     else if (i == 1) {
-      myList.append(2);
-      result = myList[0] * 2;
+      myList.add(2);
+      result = myList.get(0) * 2;
       System.out.println(Integer.toString(result));
     }
     else if (i == 2){
-      myList.append(4);
-      result = 4 + myList[0];
+      myList.add(4);
+      result = 4 + myList.get(0);
       System.out.println(Integer.toString(result));
     }
   }

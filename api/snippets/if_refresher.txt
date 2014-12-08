@@ -1,4 +1,4 @@
-public class Refresher1 {
+public class Refresher {
   public static void main(String[] args){
     int i = 51;
     if (i % 2 == 0)

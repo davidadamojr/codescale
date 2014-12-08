@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2014 at 12:42 AM
+-- Generation Time: Dec 08, 2014 at 08:48 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -84,27 +84,42 @@ CREATE TABLE IF NOT EXISTS `snippets` (
   `filename` varchar(45) NOT NULL,
   `output` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `snippets`
 --
 
 INSERT INTO `snippets` (`id`, `type`, `filename`, `output`) VALUES
-(1, 'SWITCH_CASE', 'case_activity_1_7lines.txt', '10'),
-(2, 'DO_WHILE', 'do_activity_1_8lines.txt', '10'),
-(3, 'REFRESHER', 'do_refresher.txt', '10'),
-(4, 'FOR_LOOP', 'for_activity_1_5lines.txt', '10'),
-(5, 'REFRESHER', 'for_refresher.txt', '10'),
-(6, 'IF_ELSE', 'if_activity_1_4lines.txt', '10'),
-(7, 'REFRESHER', 'if_refresher.txt', '10'),
-(8, 'RECURSION', 'recursion_activity_1_10lines.txt', '10'),
+(1, 'SWITCH_CASE', 'case_activity_1_9lines.txt', '6'),
+(2, 'DO_WHILE', 'do_activity_1_8lines.txt', '11'),
+(3, 'REFRESHER', 'do_refresher.txt', '11'),
+(4, 'FOR_LOOP', 'for_activity_1_5lines.txt', '20'),
+(5, 'REFRESHER', 'for_refresher.txt', '6'),
+(6, 'IF_ELSE', 'if_activity_1_9lines.txt', '6'),
+(7, 'REFRESHER', 'if_refresher.txt', '58'),
+(8, 'RECURSION', 'recursion_activity_1_9lines.txt', '10'),
 (9, 'REFRESHER', 'recursion_refresher.txt', '10'),
-(10, 'SEQ_13', 'seq_activity_13lines.txt', '10'),
+(10, 'SEQ_9', 'seq_activity_9lines.txt', '10'),
 (11, 'REFRESHER', 'seq_refresher.txt', '10'),
 (12, 'REFRESHER', 'switch_refresher.txt', '10'),
 (13, 'WHILE_LOOP', 'while_activity_1_8lines.txt', '10'),
-(14, 'REFRESHER', 'while_refresher.txt', '10');
+(14, 'REFRESHER', 'while_refresher.txt', '10'),
+(15, 'SWITCH_CASE', 'case_activity_2_9lines.txt', '5'),
+(16, 'SWITCH_CASE', 'case_activity_3_9lines.txt', '11'),
+(17, 'DO_WHILE', 'do_activity_2_8lines.txt', '-20'),
+(18, 'DO_WHILE', 'do_activity_3_8lines.txt', '-8'),
+(19, 'FOR_LOOP', 'for_activity_2_5lines.txt', '19'),
+(20, 'FOR_LOOP', 'for_activity_3_5lines.txt', '-8'),
+(21, 'IF_ELSE', 'if_activity_2_9lines.txt', '8'),
+(22, 'IF_ELSE', 'if_activity_3_9lines.txt', '4'),
+(23, 'RECURSION', 'recursion_activity_2_10lines.txt', '10'),
+(24, 'RECURSION', 'recursion_activity_3_10lines.txt', '10'),
+(25, 'WHILE_LOOP', 'while_activity_2_8lines.txt', '10'),
+(26, 'WHILE_LOOP', 'while_activity_3_8lines.txt', '10'),
+(27, 'SEQ_5', 'seq_activity_5lines.txt', '10'),
+(28, 'SEQ_8', 'seq_activity_8lines.txt', '10'),
+(29, 'SEQ_10', 'seq_activity_10lines.txt', '10');
 
 -- --------------------------------------------------------
 

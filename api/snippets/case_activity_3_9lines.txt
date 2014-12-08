@@ -1,22 +1,22 @@
-public class Activity3 {
+public class Activity {
   public static void main(String[] args){
     int i = 1;
     int result;
-    ArrayList<Integer> myList;
+    ArrayList<Integer> myList = new ArrayList<Integer>();
     switch(i){
       case 0:
-        myList.append(5);
-        int result = myList[0] + 0;
+        myList.add(5);
+        result = myList.get(0) + 0;
         System.out.println(Integer.toString(result));
         break;
       case 1:
-        myList.append(10);
-        int result = myList[0] + 1;
+        myList.add(10);
+        result = myList.get(0) + 1;
         System.out.println(Integer.toString(result));
         break;
       case 2:
-        myList.append(4);
-        int result = myList[0] + 2;
+        myList.add(4);
+        result = myList.get(0) + 2;
         System.out.println(Integer.toString(result));
         break;		
     }
