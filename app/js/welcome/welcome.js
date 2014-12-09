@@ -24,7 +24,7 @@ angular.module('codeScaleApp.welcome', ['ngRoute'])
 		  if (scope.authResponse.authorized){
    			//sessionService.create(scope.userCode);
 			$cookieStore.put('codeScale.code', scope.userCode);
-			$location.url('/refresher');
+			$location.url('/overview');
 		  } else {
 			scope.feedbackInfo = "Invalid Code";
 		  }

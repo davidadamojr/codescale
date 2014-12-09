@@ -11,4 +11,14 @@ angular.module('codeScaleApp.overview', ['ngRoute'])
 
 .controller('OverviewCtrl', [function() {
 
+}])
+.directive('gotoActivity', ['$location', function($location){
+  return {
+    restrict: 'A',
+	link: function(scope, element, attrs){
+	  element.on("click", function(){
+	    $scope.$apply($location.url('/mainactivity'));
+	  });
+	}
+  };
 }]);

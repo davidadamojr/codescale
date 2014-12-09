@@ -31,6 +31,7 @@ config(['$routeProvider', 'hljsServiceProvider', function($routeProvider, hljsSe
   });
 }])
 
+//.value('apiBaseUrl', 'http://104.131.44.33:5000')
 .value('apiBaseUrl', 'http://localhost:5000')
 
 .service('snippetsService', ['apiBaseUrl', '$http', function(apiBaseUrl, $http){
