@@ -19,6 +19,8 @@ angular.module('codeScaleApp.welcome', ['ngRoute'])
 	  element.on("click", function(){
 	    scope.feedbackInfo = "Authenticating...";
 		scope.showFeedback = true;
+		
+		//TODO: move this API call to a separate service so it can be tested properly
 	    $http.post(apiBaseUrl + '/api/v1/access', {code:scope.userCode}).success(function(data){
 		  scope.authResponse = data;
 		  if (scope.authResponse.authorized){
